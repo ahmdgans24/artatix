@@ -1,0 +1,36 @@
+<?php
+//koneksi data base
+session_start();
+include "koneksi/koneksi.php";
+
+
+$user_id             = $_POST["user_id"];
+$user_email         = $_POST["user_email"];
+$user_password         = md5($_POST["user_password"]);
+$user_nmlengkap        = $_POST["user_nmlengkap"];
+$user_notelp         = $_POST["user_notelp"];
+$user_level         = $_POST["user_level"];
+$uservl_status      =$_POST["uservl_status"];
+
+
+$queryinsert = "INSERT INTO  tbl_user (
+user_id,
+user_email,
+user_password,
+user_nmlengkap,
+user_notelp,
+user_level,
+uservl_status )
+ VALUES (
+ '$user_id',
+ '$user_email',
+ '$user_password',
+ '$user_nmlengkap',
+ '$user_notelp',
+ '$user_level',
+ '$uservl_status')";
+
+//menyimpan data ke database
+mysqli_query($konek, $queryinsert);
+echo "<h3>Sukses !!! Data berhasil di simpan.</h3>";
+header("Location: page_login.php");
