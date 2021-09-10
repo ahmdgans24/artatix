@@ -4,7 +4,6 @@ session_start();
 include "koneksi/koneksi.php";
 error_reporting(0);
 
-
 	$tkt_id				= $_POST["tkt_id"];
 	$cart_id    		= $_POST["cart_id"];
     $event_id    		= $_POST["event_id"];

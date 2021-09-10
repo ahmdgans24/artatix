@@ -20,6 +20,11 @@ $kodeUser = $huruf . sprintf("%03s", $urutan);
 
 <head>
     <title>Artatix - Register</title>
+    <style>
+        .alert {
+            margin-bottom: 0 !important;
+        }
+    </style>
     <!-- Library CSS -->
     <?php
     include "bundle_css_enduser.php";
@@ -27,7 +32,13 @@ $kodeUser = $huruf . sprintf("%03s", $urutan);
 </head>
 
 <body>
-
+    <?php
+        if (isset($_GET['pesan'])) {
+            if ($_GET['pesan'] == "success") {
+                echo "<div class='alert alert-success' role='alert'>Pendaftaran kamu berhasil dibuat. Silahkan <a href='page_login.php' class='text-primary'>login</a></div>";
+            }
+        }
+    ?>
     <div class="container-fluid">
         <div class="row no-gutter">
 
@@ -44,9 +55,6 @@ $kodeUser = $huruf . sprintf("%03s", $urutan);
                         <div class="row">
                             
                             <div class="col-lg-10 col-xl-7 mx-auto">
-                            <div class="alert alert-success">
-                            <span>Pendaftaran kamu berhasil dibuat</span>
-                        </div>
                                 <a href="index.php"><img src="img/logo/Artatix2.png" alt="logo" width="100%" height="60" class="mb-4 logo_login "></a>
                                 <p class="text-muted mb-4 text-center">Lengkapi form untuk melanjutkan proses registrasi</p>
 
@@ -65,11 +73,11 @@ $kodeUser = $huruf . sprintf("%03s", $urutan);
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <input type="hidden" name="user_nmlengkap" placeholder="Nama Lengkap" required="" value="Member" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <input type="text" name="user_nmlengkap" placeholder="Nama Lengkap" required="" class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <input type="hidden" name="user_notelp" placeholder="Nomor Ponsel" required="" value="0" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <input type="number" name="user_notelp" placeholder="Nomor Ponsel" required=""" class="form-control rounded-pill border-0 shadow-sm px-4">
                                     </div>
 
                                     <div class="form-group mb-3">

@@ -68,60 +68,76 @@ $id = $_GET['id'];
             <!-- Sidebar inner chat end-->
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
-                    <nav class="pcoded-navbar">
+                <nav class="pcoded-navbar">
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Menu</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded">
+                                <li class="pcoded  pcoded-trigger">
                                     <a href="index.php">
-                                        <span class="pcoded-micon "><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-micon active"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
                                 </li>
                             </ul>
                             <div class="pcoded-navigatio-lavel">Management</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="pcoded ">
-                                    <a href="event.php">
-                                        <span class="pcoded-micon "><i class="feather icon-calendar"></i></span>
+                            <ul class="pcoded-item">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
                                         <span class="pcoded-mtext">Event</span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="Active">
+                                            <a href="event.php">
+                                                <span class="pcoded-mtext active">Semua</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
-                            </ul>
-                            <ul class="pcoded-item pcoded-left-item">
-
-                                <li class="pcoded-hasmenu pcoded-trigger">
+                                <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
-
                                         <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
                                         <span class="pcoded-mtext">Report</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class="active">
-                                            <a href="report_event.php?id=<?= $event_id; ?>">
-
-                                                <span class="pcoded-mtext">Data Pemesan</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="report_event_sales.php?id=<?= $event_id; ?>">
-                                                <span class="pcoded-mtext">Sales Report</span>
+                                            <a href="report_event.php">
+                                                <span class="pcoded-mtext">Report Event</span>
                                             </a>
                                         </li>
-                                    </ul>
+                                        <!-- <li class=" ">
+                                            <a href="report_peserta.php">
+                                                <span class="pcoded-mtext">Report Revenue</span>
+                                            </a>
+                                        </li> -->
 
-                                    <ul class="pcoded-submenu">
-                                        <li class=" ">
-                                            <a href="report_checkin.php?id=<?= $event_id; ?>"">
-                                                <span class="pcoded-mtext">Check-in</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
+                                <li class="pcoded-hasmenu">
+                                    <!-- <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-command"></i></span>
+                                        <span class="pcoded-mtext">Withdraw</span>
+                                    </a> -->
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="icon-font-awesome.htm">
+                                                <span class="pcoded-mtext">Status</span>
+                                            </a>
+                                        </li>
 
+                                    </ul>
+                                </li>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded">
+                                        <a href="user.php">
+                                            <span class="pcoded-micon "><i class="feather icon-user"></i></span>
+                                            <span class="pcoded-mtext">Users</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </ul>
+
                         </div>
                     </nav>
                     <div class="pcoded-content">

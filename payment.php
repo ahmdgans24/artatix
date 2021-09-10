@@ -6,17 +6,18 @@ include 'koneksi/koneksi.php';
 // $pay_status = $_POST['pay_status'];
 // $cst_id = $_POST['pay_id'];
 
-$pay_id = "<script>res_id</script>";
-$pay_date = 123;
-$pay_status = 123;
-$cst_id = 123;
+// $pay_id = "<script>res_id</script>";
+// $pay_date = 123;
+// $pay_status = 123;
+// $cst_id = 123;
 
-echo $pay_id;
+$ress = $_POST['result_data'];
+echo $ress;
 
-$addPay = mysqli_query($konek, "INSERT INTO tbl_pay VALUES ($pay_id, $pay_date, $pay_status, $cst_id)");
+// $addPay = mysqli_query($konek, "INSERT INTO tbl_pay VALUES (1, now(), 'sudah bayar', 1)");
 
-if($addPay){
-    echo '<script>alert("berhasil")</script>';
-} else {
-    echo 'gagal';
-}
+// if($addPay){
+//     echo '<script>alert("berhasil")</script>';
+// } else {
+//     echo 'gagal'.mysqli_error($konek);
+// }

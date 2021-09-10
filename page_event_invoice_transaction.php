@@ -51,12 +51,6 @@ $transaction_details = array(
   'gross_amount' => 100, //$invoice_tr['tkt_price'] * $invoice_tr['cart_qty'], // no decimal allowed for creditcard
 );
 
-$order_id = $transaction_details['order_id'];
-
-// require_once 'veritrans-php-snap/Veritrans/Transaction.php';
-// $status = Transaction::status($order_id);
-// var_dump($status);
-
 // Optional
 $item1_details = array(
   'id' => 'a1',
@@ -133,7 +127,12 @@ $transaction = array(
   'item_details' => $item_details,
 );
 
+// if(isset($_POST['btn-pay'])){
+//   echo $_POST['pay_id'];
+//   echo $_POST['pay_date'];
+// }
 
+// $AddPay = mysqli_query($konek, "INSERT INTO tbl_pay VALUES ("");
 
 $snapToken = Veritrans_Snap::getSnapToken($transaction);
 // echo "snapToken = ".$snapToken;
@@ -449,13 +448,14 @@ $snapToken = Veritrans_Snap::getSnapToken($transaction);
                       <tbody>
                         <tr>
                           <td style="font-size: 12px; font-family: 'poppins', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                            <form action="" method="post" id="hdnForm">
+                            <form action="payment.php" method="post" id="hdnForm">
+                              <input type="hidden" name="result_data">
                               <input type="hidden" name="pay_id" id="orId" value="">
                               <input type="hidden" name="pay_date" id="dateTrans" value="">
                               <input type="hidden" name="pay_status" id="status" value="">
                               <input type="hidden" name="cst_id" value="<?= $invoice_tr['cst_id'] ?>">
+                              <button type="button" name="btn-pay" id="pay-button">Pay</button>
                             </form>
-                            <button id="pay-button">Pay</button>
                           </td>
                         </tr>
                       </tbody>
@@ -529,16 +529,21 @@ $snapToken = Veritrans_Snap::getSnapToken($transaction);
 
             //   // let cstId = $('#cst_id').val();
 
-              $('#pay-button').click(function(){
-                console.log(e);
-                $.ajax({
-                  type: $('#hdnForm').attr('method'),
-                  url: $('#hdnForm').attr('action'),
-                  data: $('#hdnForm').serialize(),
-                  success: function (response) {
-                    console.log('berhasil');
-                  }
-                });
+              $('#hdnForm').on('submit', function(e){
+                return false;
+              });
+
+              $('#pay-button').click(function(e){
+                e.preventDefault();
+                // console.log($("#hdnForm").serialize());
+                // $.ajax({
+                //   type: $('#hdnForm').attr('method'),
+                //   url: $('#hdnForm').attr('action'),
+                //   data: $('#hdnForm').serialize(),
+                //   success: function (response) {
+                //     console.log('berhasil');
+                //   }
+                // });
               });
 
             //   if(orderId != "" && status != "" && dateTrans != ""){
@@ -580,5 +585,8 @@ $snapToken = Veritrans_Snap::getSnapToken($transaction);
         });
       };
     </script>
+    <?php
+      echo '<script>$("#orId").val()</script>';
+    ?>
   </body>
 </html>

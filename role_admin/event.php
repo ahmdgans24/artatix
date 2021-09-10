@@ -65,42 +65,78 @@ if ($_SESSION['user_level'] == "") {
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            <nav class="navbar header-navbar pcoded-header">
-                <div class="navbar-wrapper">
+        <nav class="pcoded-navbar">
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-navigatio-lavel">Menu</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded  pcoded-trigger">
+                                    <a href="index.php">
+                                        <span class="pcoded-micon active"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Dashboard</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="pcoded-navigatio-lavel">Management</div>
+                            <ul class="pcoded-item">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
+                                        <span class="pcoded-mtext">Event</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="Active">
+                                            <a href="event.php">
+                                                <span class="pcoded-mtext active">Semua</span>
+                                            </a>
+                                        </li>
 
-                    <div class="navbar-logo">
-                        <a class="mobile-menu" id="mobile-collapse" href="#!">
-                            <i class="feather icon-menu"></i>
-                        </a>
-                        <a href="index.php">
-                            <img class="img-fluid" src="..\files\assets\images\logo.png" alt="Theme-Logo">
-                        </a>
-                        <a class="mobile-options">
-                            <i class="feather icon-more-horizontal"></i>
-                        </a>
-                    </div>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                                        <span class="pcoded-mtext">Report</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="report_event.php">
+                                                <span class="pcoded-mtext">Report Event</span>
+                                            </a>
+                                        </li>
+                                        <!-- <li class=" ">
+                                            <a href="report_peserta.php">
+                                                <span class="pcoded-mtext">Report Revenue</span>
+                                            </a>
+                                        </li> -->
 
-                    <div class="navbar-container container-fluid">
-                        <ul class="nav-left">
-                            <li class="header-search">
-                                <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#!" onclick="javascript:toggleFullScreen()">
-                                    <i class="feather icon-maximize full-screen"></i>
-                                </a>
-                            </li>
-                        </ul>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <!-- <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-command"></i></span>
+                                        <span class="pcoded-mtext">Withdraw</span>
+                                    </a> -->
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="icon-font-awesome.htm">
+                                                <span class="pcoded-mtext">Status</span>
+                                            </a>
+                                        </li>
 
-                    </div>
-                </div>
-            </nav>
+                                    </ul>
+                                </li>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded">
+                                        <a href="user.php">
+                                            <span class="pcoded-micon "><i class="feather icon-user"></i></span>
+                                            <span class="pcoded-mtext">Users</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ul>
+
+                        </div>
+                    </nav>
 
             <!-- Sidebar chat start -->
             <div id="sidebar" class="users p-chat-user showChat">

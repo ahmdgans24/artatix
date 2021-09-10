@@ -32,5 +32,4 @@ uservl_status )
 
 //menyimpan data ke database
 mysqli_query($konek, $queryinsert);
-echo "<h3>Sukses !!! Data berhasil di simpan.</h3>";
-header("Location: page_login.php");
+header("Location: page_register.php?pesan=success");

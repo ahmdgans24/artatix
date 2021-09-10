@@ -65,104 +65,78 @@ include "auth.php";
 
 			<div class="pcoded-main-container">
 				<div class="pcoded-wrapper">
-					<nav class="pcoded-navbar">
-						<div class="pcoded-inner-navbar main-menu">
-							<div class="pcoded-navigatio-lavel">Menu</div>
-							<ul class="pcoded-item pcoded-left-item">
-								<li class="pcoded">
-									<a href="index.php">
-										<span class="pcoded-micon "><i class="feather icon-home"></i></span>
-										<span class="pcoded-mtext">Dashboard</span>
-									</a>
-								</li>
-							</ul>
-							<div class="pcoded-navigatio-lavel">Management</div>
-							<ul class="pcoded-item">
-								<li class="pcoded-hasmenu">
-									<a href="javascript:void(0)">
-										<span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
-										<span class="pcoded-mtext">Event</span>
-									</a>
-									<ul class="pcoded-submenu">
-										<li class="">
-											<a href="admin_event_all.php">
-												<span class="pcoded-mtext ">Semua</span>
-											</a>
-										</li>
+				<nav class="pcoded-navbar">
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-navigatio-lavel">Menu</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded  pcoded-trigger">
+                                    <a href="index.php">
+                                        <span class="pcoded-micon active"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Dashboard</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="pcoded-navigatio-lavel">Management</div>
+                            <ul class="pcoded-item">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
+                                        <span class="pcoded-mtext">Event</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="Active">
+                                            <a href="event.php">
+                                                <span class="pcoded-mtext active">Semua</span>
+                                            </a>
+                                        </li>
 
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                                        <span class="pcoded-mtext">Report</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="report_event.php">
+                                                <span class="pcoded-mtext">Report Event</span>
+                                            </a>
+                                        </li>
+                                        <!-- <li class=" ">
+                                            <a href="report_peserta.php">
+                                                <span class="pcoded-mtext">Report Revenue</span>
+                                            </a>
+                                        </li> -->
 
-									</ul>
-								</li>
-								<li class="pcoded-hasmenu">
-									<a href="javascript:void(0)">
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <!-- <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-command"></i></span>
+                                        <span class="pcoded-mtext">Withdraw</span>
+                                    </a> -->
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="icon-font-awesome.htm">
+                                                <span class="pcoded-mtext">Status</span>
+                                            </a>
+                                        </li>
 
-										<span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
-										<span class="pcoded-mtext">Report</span>
-									</a>
-									<ul class="pcoded-submenu">
-										<li class=" ">
-											<a href="icon-font-awesome.htm">
-												<span class="pcoded-mtext">Report Event</span>
-											</a>
-										</li>
-										<li class=" ">
-											<a href="icon-font-awesome.htm">
-												<span class="pcoded-mtext">Report Revenue</span>
-											</a>
-										</li>
+                                    </ul>
+                                </li>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded">
+                                        <a href="user.php">
+                                            <span class="pcoded-micon "><i class="feather icon-user"></i></span>
+                                            <span class="pcoded-mtext">Users</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ul>
 
-									</ul>
-								</li>
-								<!-- <li class="pcoded-hasmenu">
-									<a href="javascript:void(0)">
-										<span class="pcoded-micon"><i class="feather icon-command"></i></span>
-										<span class="pcoded-mtext">Withdraw</span>
-									</a>
-									<ul class="pcoded-submenu">
-										<li class=" ">
-											<a href="icon-font-awesome.htm">
-												<span class="pcoded-mtext">Status</span>
-											</a>
-										</li>
-
-									</ul>
-								</li> -->
-
-								<li class="pcoded-hasmenu active">
-									<a href="javascript:void(0)">
-										<span class="pcoded-micon"><i class="fa fa-user"></i></span>
-										<span class="pcoded-mtext">User</span>
-									</a>
-									<ul class="pcoded-submenu">
-										<li class=" active">
-											<a href="user.php">
-												<span class="pcoded-mtext">All User</span>
-											</a>
-										</li>
-
-									</ul>
-									<ul class="pcoded-submenu">
-										<li class=" ">
-											<a href="user_verification.php">
-												<span class="pcoded-mtext">Need Verification</span>
-											</a>
-										</li>
-
-									</ul>
-									<ul class="pcoded-submenu">
-										<li class=" ">
-											<a href="user_verified.php">
-												<span class="pcoded-mtext">Verified</span>
-											</a>
-										</li>
-
-									</ul>
-									
-								</li>
-							</ul>
-
-						</div>
-					</nav>
+                        </div>
+                    </nav>
 					<div class="pcoded-content">
 						<div class="pcoded-inner-content">
 							<div class="main-body">

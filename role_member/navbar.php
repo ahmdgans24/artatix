@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 $event_id = $_GET["id"];
 ?>
 
@@ -52,11 +52,14 @@ $event_id = $_GET["id"];
                         <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             
                                 <li>
-                                   
                                     <a href="user_profil.php?id=<?php echo $user_id; ?>">
                                         <i class="feather icon-user"></i> Profile
                                     </a>
-                            
+                                </li>
+                                <li>
+                                    <a href="change_pass.php?id=<?php echo $user_id; ?>">
+                                        <i class="feather icon-user"></i> Change Password
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="../page_logout.php">

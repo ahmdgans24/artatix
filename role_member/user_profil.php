@@ -17,7 +17,9 @@ $urutan++;
 // misalnya string sprintf("%03s", 22); maka akan menghasilkan '022'
 // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya PC
 $huruf = "USRVL";
-$kodeUservl = $huruf . sprintf("%03s", $urutan);
+
+// menggunakan fungsi rand() sebagai alternatif
+$kodeUservl = $huruf . sprintf("%03s", substr(rand(), 6));
 
 ?>
 
@@ -136,6 +138,23 @@ $kodeUservl = $huruf . sprintf("%03s", $urutan);
                             <!-- Main-body start -->
                             <div class="main-body">
                                 <div class="page-wrapper">
+                                    <?php
+                                        if(isset($_GET['pesan'])){
+                                            if($_GET['pesan'] == 'simpan'){
+                                                echo '<div class="alert alert-success" role="alert">
+                                                        Data berhasil di input
+                                                    </div>';
+                                            }elseif($_GET['pesan'] == 'gagal_ektensi'){
+                                                echo '<div class="alert alert-danger" role="alert">
+                                                        Ektensi File harus berupa gambar!
+                                                    </div>';
+                                            }elseif($_GET['pesan'] == 'gagal_ukuran'){
+                                                echo '<div class="alert alert-danger" role="alert">
+                                                        Ukuran gambar terlalu besar!
+                                                    </div>';
+                                            }
+                                        }
+                                    ?>
                                     <!-- Page-header start -->
                                     <div class="page-header">
                                         <div class="row align-items-end">
@@ -199,7 +218,7 @@ $kodeUservl = $huruf . sprintf("%03s", $urutan);
                                                                                                 if ($queryuser == false) {
                                                                                                     die("Terjadi Kesalahan : " . mysqli_error($konek));
                                                                                                 }
-                                                                                                while ($user = mysqli_fetch_array($queryuser)) {
+                                                                                                while ($user = mysqli_fetch_assoc($queryuser)) {
                                                                                                     $user_id = $user['user_id'];
                                                                                                     $uservl_status = $user['uservl_status'];
                                                                                                 ?>
@@ -253,10 +272,20 @@ $kodeUservl = $huruf . sprintf("%03s", $urutan);
                                                             </div>
                                                         </div>
                                                         <div class="card">
-                                                            <div class="card-header">
-                                                                <h5>Verifikasi Data</h5>
-
-                                                            </div>
+                                                            <?php
+                                                                if($uservl_status == 0){
+                                                                    echo '<div class="card-header">
+                                                                            <div class="row align-items-center">
+                                                                                <div class="col-lg-10 col-sm-12 col-6">
+                                                                                    <h5>Verifikasi Data</h5>
+                                                                                </div>
+                                                                                <div class="col-lg-2 col-sm-12 col-6">
+                                                                                    <button type="button" class="btn  btn-primary btn-sm form-control" data-toggle="modal" data-target="#ModalAddVerifikasi"><i class="fa fa-plus "></i>Add </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>';
+                                                                }else{
+                                                            ?>
                                                             <div class="card-block">
                                                                 <div class="view-info">
                                                                     <div class="row">
@@ -284,28 +313,13 @@ $kodeUservl = $huruf . sprintf("%03s", $urutan);
                                                                                                 tbl_user
                                                                                             INNER JOIN tbl_user_vl ON tbl_user.user_id = tbl_user_vl.user_id
                                                                                             WHERE tbl_user.user_id='$user_id'");
-
                                                                                 if ($queryusrvl == false) {
                                                                                     die("Terjadi Kesalahan : " . mysqli_error($konek));
                                                                                 }
-                                                                                while ($uservl = mysqli_fetch_array($queryusrvl)) {
-                                                                                ?>
+                                                                                while ($uservl = mysqli_fetch_assoc($queryusrvl)) {
                                                                                 
-                                                                                   
-                                                                                   
+                                                                                ?>
                                                                             </div>
-
-
-                                                                            <?php
-
-                                                                                    if ($uservl['uservl_status'] == 0) {
-                                                                                        echo ' 
-                                                                                                       ';
-                                                                                    } else {
-                                                                                        echo ' 
-                                                                         ';
-                                                                                    }
-                                                                            ?>
 
                                                                             <div class="general-info">
                                                                                 <div class="row">
@@ -343,36 +357,10 @@ $kodeUservl = $huruf . sprintf("%03s", $urutan);
                                                                         </div>
                                                                         <!-- end of row -->
                                                                     </div>
-                                                                <?php } ?>
-                                                                <?php
-
-if ($uservl['uservl_status'] < 1) {
-    echo '  <div class="col">
-    <button type="button" class="btn  btn-primary btn-sm form-control" data-toggle="modal" data-target="#ModalAddVerifikasi"><i class="fa fa-plus "></i>Add </button>
-</div>
-<div class="col-sm-10">
-
-</div>
-
-
-<div class="col">
-
-</div>';
-} else {
-    echo '  <div class="col">
-   
-</div>
-<div class="col-sm-10">
-
-</div>
-
-
-<div class="col">
-
-</div>';
-}
-?>
-
+                                                                <?php 
+                                                                    }
+                                                                } ?>
+                                                                <!-- modal -->
                                                                 <div class="modal fade" id="ModalAddVerifikasi" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog modal-lg" role="document">
                                                                         <form action="user_profil_add.php" name="modal_popup" enctype="multipart/form-data" method="post">
@@ -391,7 +379,7 @@ if ($uservl['uservl_status'] < 1) {
                                                                                             <input type="hidden" class="form-control" name="user_id" value="<?php echo $user_id ?>">
                                                                                             <input type="hidden" class="form-control" name="uservl_status" value="Need Verification">
 
-                                                                                            <input type="file" name="uservl_img_identity1" class="form-control" multiple="multiple">
+                                                                                            <input type="file" name="uservl_img_identity1" class="form-control">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">
@@ -415,7 +403,7 @@ if ($uservl['uservl_status'] < 1) {
                                                                                     <div class="form-group row">
                                                                                         <label class="col-sm-2 col-form-label">Upload NPWP</label>
                                                                                         <div class="col-sm-10">
-                                                                                            <input type="file" name="uservl_img_identity2" class="form-control" multiple="multiple">
+                                                                                            <input type="file" name="uservl_img_identity2" class="form-control">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="form-group row">

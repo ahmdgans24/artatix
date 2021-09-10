@@ -101,7 +101,6 @@ error_reporting(0)
 
                                     <div class="col-sm-12 col-md-12 col-xl-12">
 
-
                                         <!-- Alert card end -->
 
                                         <div class="page-wrapper">
@@ -114,38 +113,37 @@ error_reporting(0)
                                             while ($user = mysqli_fetch_assoc($status)) {
 
                                                 $stat =  $user['uservl_status'];
-                                            }
+                                            // }
 
+                                                if ($stat == 0) {
+                                                    echo ' <div class="page-header">
 
+                                                        <div class="row align-items-end">
+                                                            <div class="col-lg-12">
+                                                                <div class="card text-black">
+                                                                    <div class="card-block primary">
+                                                                        <div class="row align-items-left">
+                                                                            <div class="col-lg-9">
+                                                                                <div class="page-header-title ">
+                                                                                    <div class="ion-alert fa-lg text-primary">
 
-                                            if ($stat == 0) {
-                                                echo ' <div class="page-header">
+                                                                                        &nbsp;<Span>Kamu belum melakukan verifikasi akun</SPAN>
 
-                                                    <div class="row align-items-end">
-                                                        <div class="col-lg-12">
-                                                            <div class="card text-black">
-                                                                <div class="card-block primary">
-                                                                    <div class="row align-items-left">
-                                                                        <div class="col-lg-9">
-                                                                            <div class="page-header-title ">
-                                                                                <div class="ion-alert fa-lg text-primary">
-
-                                                                                    &nbsp;<Span>Kamu belum melakukan verifikasi akun</SPAN>
-
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="col-lg-2">
-                                                                            <a href="user_profil.php?id=<?php echo $user_id; ?>"><button class="btn  BTN-SM btn-primary">Verifikasi Sekarang</button></a>
+                                                                            <div class="col-lg-2">
+                                                                                <a href="user_profil.php?id='.$user["user_id"].'"><button class="btn  BTN-SM btn-primary">Verifikasi Sekarang</button></a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                   ';
-                                            } else {
-                                                echo "";
+                                                    ';
+                                                } else {
+                                                    echo "";
+                                                }
                                             }
                                             ?>
 
